@@ -1,0 +1,220 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #f9fafb;
+  background: #0f172a;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(99, 102, 241, 0.35), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(236, 72, 153, 0.28), transparent 35%),
+    #0f172a;
+}
+
+button,
+textarea {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.app {
+  width: min(100% - 24px, 960px);
+  margin: 0 auto;
+  padding: 24px 0 16px;
+  display: grid;
+  gap: 18px;
+}
+
+.card {
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 24px;
+  background: rgba(15, 23, 42, 0.76);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(16px);
+}
+
+.eyebrow {
+  margin: 0;
+  color: #c4b5fd;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+h1,
+h2 {
+  margin: 8px 0;
+}
+
+h1 {
+  font-size: clamp(2rem, 8vw, 3.6rem);
+  line-height: 1;
+}
+
+h2 {
+  font-size: 1.35rem;
+}
+
+.lead,
+.editor p {
+  color: #cbd5e1;
+}
+
+.roulette-wrap {
+  position: relative;
+  width: min(100%, 520px);
+  margin: 24px auto 16px;
+}
+
+#wheel {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 8px rgba(255, 255, 255, 0.08),
+    0 18px 50px rgba(0, 0, 0, 0.4);
+}
+
+.pointer {
+  position: absolute;
+  z-index: 2;
+  top: -6px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform: translateX(-50%);
+  border-left: 18px solid transparent;
+  border-right: 18px solid transparent;
+  border-top: 38px solid #f8fafc;
+  filter: drop-shadow(0 4px 5px rgba(0, 0, 0, 0.35));
+}
+
+.spin-button,
+.update-button,
+.sub-button {
+  border: 0;
+  border-radius: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.spin-button:active,
+.update-button:active,
+.sub-button:active {
+  transform: scale(0.97);
+}
+
+.spin-button {
+  display: block;
+  width: min(100%, 360px);
+  margin: 12px auto;
+  padding: 18px;
+  color: #111827;
+  background: linear-gradient(135deg, #f9a8d4, #c4b5fd, #93c5fd);
+  font-size: 1.2rem;
+}
+
+.spin-button:disabled,
+.sub-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.result {
+  min-height: 72px;
+  margin-top: 16px;
+  padding: 18px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.08);
+  text-align: center;
+  font-size: clamp(1.1rem, 5vw, 1.65rem);
+  font-weight: 800;
+}
+
+.actions {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.sub-button,
+.update-button {
+  padding: 13px 14px;
+  color: #f8fafc;
+  background: rgba(255, 255, 255, 0.11);
+}
+
+textarea {
+  width: 100%;
+  padding: 14px;
+  resize: vertical;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  outline: none;
+  color: #f8fafc;
+  background: rgba(2, 6, 23, 0.65);
+  line-height: 1.7;
+}
+
+textarea:focus {
+  border-color: #a78bfa;
+  box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.14);
+}
+
+.update-button {
+  width: 100%;
+  margin-top: 12px;
+  background: #7c3aed;
+}
+
+.message {
+  min-height: 1.5em;
+  margin-bottom: 0;
+  font-size: 0.9rem;
+}
+
+footer {
+  padding: 12px 16px 28px;
+  color: #94a3b8;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+@media (min-width: 820px) {
+  .app {
+    grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+    align-items: start;
+    padding-top: 40px;
+  }
+
+  .editor {
+    position: sticky;
+    top: 24px;
+  }
+}
+
+@media (max-width: 420px) {
+  .card {
+    padding: 18px;
+    border-radius: 20px;
+  }
+
+  .actions {
+    grid-template-columns: 1fr;
+  }
+}
