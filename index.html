@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#111827" />
+  <title>かんたんルーレット</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="card">
+      <p class="eyebrow">SIMPLE ROULETTE</p>
+      <h1>かんたんルーレット</h1>
+      <p class="lead">候補を入れて、ボタンを押すだけ。</p>
+      <div class="roulette-wrap" aria-label="ルーレット">
+        <div class="pointer" aria-hidden="true"></div>
+        <canvas id="wheel" width="640" height="640"></canvas>
+      </div>
+      <button id="spinButton" class="spin-button" type="button">回す！</button>
+      <div id="result" class="result" aria-live="polite">結果がここに表示されるよ</div>
+      <div class="actions">
+        <button id="removeWinnerButton" class="sub-button" type="button" disabled>当選した項目を削除</button>
+        <button id="resetButton" class="sub-button" type="button">初期状態に戻す</button>
+      </div>
+    </section>
+    <section class="card editor">
+      <h2>候補を編集</h2>
+      <p>1行に1つずつ入力してね。</p>
+      <textarea id="itemsInput" rows="8" spellcheck="false">ごはん
+ラーメン
+カレー
+寿司
+焼肉
+パスタ</textarea>
+      <button id="updateButton" class="update-button" type="button">ルーレットに反映</button>
+      <p id="message" class="message" aria-live="polite"></p>
+    </section>
+  </main>
+  <footer>Made with HTML / CSS / JavaScript</footer>
+  <script src="script.js"></script>
+</body>
+</html>
